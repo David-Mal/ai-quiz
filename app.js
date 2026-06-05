@@ -1,6 +1,6 @@
 // Main Application Logic for AI Learning Platform
 
-// Global variables
+// Global variabless
 let currentQuestion = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;

@@ -1,36 +1,16 @@
-// Firebase configuration is loaded from config.js
+// Firebase configuration is loaded from firebase-config.js
 // Initialize Firebase with error handling
 let database;
 
-// Fallback configuration for development (remove in production)
-const fallbackConfig = {
-    apiKey: "YOUR_API_KEY_HERE",
-    authDomain: "your-project.firebaseapp.com",
-    databaseURL: "https://your-project-default-rtdb.region.firebasedatabase.app",
-    projectId: "your-project-id",
-    storageBucket: "your-project.firebasestorage.app",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abcdefghijklmnop",
-    measurementId: "G-XXXXXXXXXX"
-};
-
 function initializeFirebaseConnection() {
     try {
-        let configToUse = window.firebaseConfig || fallbackConfig;
-        
-        if (!configToUse) {
-            throw new Error('No Firebase configuration available');
+        if (!window.firebaseConfig) {
+            throw new Error('Firebase configuration not found. Please create firebase-config.js from firebase-config.example.js.');
         }
         
-        firebase.initializeApp(configToUse);
+        firebase.initializeApp(window.firebaseConfig);
         database = firebase.database();
-        
-        if (window.firebaseConfig) {
-            console.log('✅ Firebase initialized with external config');
-        } else {
-            console.log('⚠️ Firebase initialized with fallback config (development mode)');
-        }
-        
+        console.log('✅ Firebase initialized');
         return true;
     } catch (error) {
         console.error('❌ Firebase initialization failed:', error);

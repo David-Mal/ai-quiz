@@ -1,0 +1,15 @@
+[build]
+  # Generates firebase-config.js from environment variables before deploying.
+  # Set the variables below in: Netlify Dashboard → Site Settings → Environment Variables
+  command = "node generate-firebase-config.js"
+  publish = "."
+
+# Required environment variables (set in Netlify Dashboard, never commit values):
+#   FIREBASE_API_KEY
+#   FIREBASE_AUTH_DOMAIN
+#   FIREBASE_DATABASE_URL
+#   FIREBASE_PROJECT_ID
+#   FIREBASE_STORAGE_BUCKET
+#   FIREBASE_MESSAGING_SENDER_ID
+#   FIREBASE_APP_ID
+#   FIREBASE_MEASUREMENT_ID   (optional)

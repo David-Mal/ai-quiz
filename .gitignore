@@ -1,6 +1,7 @@
 # Environment variables and configuration
 .env
 config.js
+firebase-config.js
 
 # Dependencies
 node_modules/
